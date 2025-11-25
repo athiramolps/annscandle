@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ann's Candle Shop | Handcrafted Candles from Durham, UK</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RDZ9VFFXW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7RDZ9VFFXW');
+  </script>
+
+  <!-- Hotjar Tracking Code -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:6462337,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+
+  <style>
+    :root {
+      --primary-color: #8B7355;
+      --secondary-color: #F5F1E8;
+      --accent-color: #D4B896;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--secondary-color);
+      color: #333;
+    }
+    
+    .navbar {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .navbar-brand {
+      font-weight: bold;
+      color: var(--primary-color) !important;
+    }
+    
+    .nav-link {
+      color: #333 !important;
+      font-weight: 500;
+    }
+    
+    .nav-link:hover {
+      color: var(--primary-color) !important;
+    }
+    
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/4465129/pexels-photo-4465129.jpeg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .product-img {
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    
+    .product-img:hover {
+      transform: scale(1.05);
+    }
+    
+    .card {
+      border: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      height: 100%;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .card-body {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    .btn-primary:hover {
+      background-color: #7a6347;
+      border-color: #7a6347;
+    }
+    
+    .btn-outline-primary {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .section-title {
+      margin-top: 40px;
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background-color: var(--accent-color);
+      bottom: -10px;
+      left: 0;
+    }
+    
+    footer {
+      background: #2c2c2c;
+      color: white;
+      padding: 40px 0 20px;
+      margin-top: 60px;
+    }
+    
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      margin-right: 15px;
+      transition: color 0.3s;
+    }
+    
+    .social-icons a:hover {
+      color: var(--accent-color);
+    }
+    
+    .cart-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: #e74c3c;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .feature-box {
+      text-align: center;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+    
+    .newsletter {
+      background-color: var(--accent-color);
+      padding: 40px 0;
+      margin-top: 60px;
+    }
+    
+    /* Product page styling */
+    .product-page {
+      display: none;
+    }
+    
+    .page-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 40px 0;
+      margin-bottom: 40px;
+    }
+    
+    .back-btn {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    
+    .back-btn:hover {
+      color: var(--accent-color);
+    }
+    
+    .product-card {
+      margin-bottom: 30px;
+    }
+    
+    .product-code {
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+    
+    .price {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: var(--primary-color);
+    }
+    
+    .product-description {
+      margin: 10px 0;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#" onclick="showPage('home')">
+        <i class="fas fa-candle-holder me-2"></i>Ann's Candle Shop
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="showPage('home')">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+              Products
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" onclick="showPage('birthday')">Birthday Candles</a></li>
+              <li><a class="dropdown-item" href="#" onclick="showPage('wedding')">Wedding Candles</a></li>
+              <li><a class="dropdown-item" href="#" onclick="showPage('decorations')">Decorative Candles</a></li>
+              <li><a class="dropdown-item" href="#" onclick="showPage('homescent')">Home Scent Candles</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="showPage('about')">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="showPage('contact')">Contact</a>
+          </li>
+          <li class="nav-item position-relative">
+            <a class="nav-link" href="#" onclick="showPage('cart')">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-badge" id="cartCount">0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home Page -->
+  <div id="home" class="page">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="display-4 fw-bold">Handcrafted Candles from Durham, UK</h1>
+        <p class="lead">Natural, hand-poured candles made with love and care</p>
+        <a href="#products" class="btn btn-primary btn-lg mt-3">Shop Now</a>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <h4>Natural Ingredients</h4>
+            <p>All our candles are made with 100% natural soy wax and essential oils.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fas fa-hand-holding-heart"></i>
+            </div>
+            <h4>Handcrafted</h4>
+            <p>Each candle is carefully hand-poured and inspected for quality.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fas fa-truck"></i>
+            </div>
+            <h4>Free UK Delivery</h4>
+            <p>Free delivery on all orders over £30 within the UK.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section class="container mt-5" id="products">
+      <h2 class="section-title">Our Products</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="card">
+            <a href="#" onclick="showPage('birthday')" style="text-decoration: none; color: inherit;">
+              <img src="https://images.pexels.com/photos/32333373/pexels-photo-32333373.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Birthday Candles" />
+              <div class="card-body">
+                <h5 class="card-title text-center">Birthday Candles</h5>
+                <p class="card-text text-center">Make every birthday special with our custom birthday candles.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card">
+            <a href="#" onclick="showPage('wedding')" style="text-decoration: none; color: inherit;">
+              <img src="https://images.pexels.com/photos/4545115/pexels-photo-4545115.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Wedding Candles" />
+              <div class="card-body">
+                <h5 class="card-title text-center">Wedding Candles</h5>
+                <p class="card-text text-center">Elegant candles to add romance and ambiance to your special day.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card">
+            <a href="#" onclick="showPage('decorations')" style="text-decoration: none; color: inherit;">
+              <img src="https://images.pexels.com/photos/33197/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Decorative Candles" />
+              <div class="card-body">
+                <h5 class="card-title text-center">Decorative Candles</h5>
+                <p class="card-text text-center">Beautiful candles to enhance your home's decor and atmosphere.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card">
+            <a href="#" onclick="showPage('homescent')" style="text-decoration: none; color: inherit;">
+              <img src="https://images.pexels.com/photos/6311975/pexels-photo-6311975.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Home Scent Candles" />
+              <div class="card-body">
+                <h5 class="card-title text-center">Home Scent Candles</h5>
+                <p class="card-text text-center">Fill your home with delightful aromas from our scented candles.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="container mt-5">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h2 class="section-title">About Ann's Candle Shop</h2>
+          <p>
+            Welcome to Ann's Candle Shop — your home for natural, hand-poured candles made with love and care in Durham, UK. 
+            From birthdays to weddings and cozy home moments, our candles bring peace and charm to every space.
+          </p>
+          <p>
+            Founded in 2015, we've been dedicated to creating high-quality candles using only the finest natural ingredients. 
+            Our passion for candle making shines through in every product we create.
+          </p>
+          <a href="#" class="btn btn-outline-primary" onclick="showPage('about')">Learn More</a>
+        </div>
+        <div class="col-md-6">
+          <img src="https://images.pexels.com/photos/4465129/pexels-photo-4465129.jpeg?auto=compress&cs=tinysrgb&w=600" class="img-fluid rounded" alt="Candle Making Process">
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="container mt-5">
+      <h2 class="section-title">What Our Customers Say</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card p-3">
+            <div class="d-flex mb-3">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+            <p>"The lavender scented candle is absolutely divine! It burns evenly and fills my entire home with a calming aroma."</p>
+            <p class="fw-bold">- Sarah J.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-3">
+            <div class="d-flex mb-3">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+            <p>"I ordered the wedding candles for my daughter's special day. They were beautiful and added such a romantic touch to the venue."</p>
+            <p class="fw-bold">- Margaret T.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-3">
+            <div class="d-flex mb-3">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+            <p>"The birthday candles I ordered were a huge hit! They looked beautiful on the cake and burned cleanly without any smoke."</p>
+            <p class="fw-bold">- James L.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+      <div class="container text-center">
+        <h3>Join Our Newsletter</h3>
+        <p class="mb-4">Subscribe to receive updates on new products and special offers.</p>
+        <form class="row g-2 justify-content-center">
+          <div class="col-auto">
+            <input type="email" class="form-control" placeholder="Your email address">
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- Birthday Candles Page -->
+  <div id="birthday" class="product-page">
+    <div class="page-header">
+      <div class="container">
+        <a href="#" class="back-btn" onclick="showPage('home')"><i class="fas fa-arrow-left me-2"></i>Back to Home</a>
+        <h1 class="display-4 mt-3">Birthday Candles</h1>
+        <p class="lead">Make every birthday celebration extra special with our handcrafted birthday candles</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <!-- Product 1 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/32333373/pexels-photo-32333373.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Colorful Number Candles">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Colorful Number Candles</h5>
+              <p class="product-code">Code: BD-001</p>
+              <p class="product-description">Vibrant number-shaped candles perfect for birthday cakes. Made with natural soy wax and non-toxic dyes.</p>
+              <p class="price mt-auto">£4.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Colorful Number Candles" data-price="4.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 2 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/8275287/pexels-photo-8275287.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Sparkler Candles">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Sparkler Candles</h5>
+              <p class="product-code">Code: BD-002</p>
+              <p class="product-description">Fun sparkler candles that create a festive display. Safe and long-lasting sparkle effect.</p>
+              <p class="price mt-auto">£6.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Sparkler Candles" data-price="6.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 3 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/15085958/pexels-photo-15085958.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Personalized Name Candles">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Personalized Name Candles</h5>
+              <p class="product-code">Code: BD-003</p>
+              <p class="product-description">Custom name candles for a personal touch. Available in various colors and fonts.</p>
+              <p class="price mt-auto">£7.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Personalized Name Candles" data-price="7.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 4 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/15085956/pexels-photo-15085956.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Animal Shape Candles">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Animal Shape Candles</h5>
+              <p class="product-code">Code: BD-004</p>
+              <p class="product-description">Adorable animal-shaped candles perfect for children's birthdays. Non-toxic and safe.</p>
+              <p class="price mt-auto">£5.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Animal Shape Candles" data-price="5.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 5 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/15085957/pexels-photo-15085957.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Classic Birthday Candles">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Classic Birthday Candles</h5>
+              <p class="product-code">Code: BD-005</p>
+              <p class="product-description">Traditional thin birthday candles in assorted colors. Pack of 24 candles.</p>
+              <p class="price mt-auto">£3.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Classic Birthday Candles" data-price="3.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 6 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/15085959/pexels-photo-15085959.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Glitter Dipped Candles">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Glitter Dipped Candles</h5>
+              <p class="product-code">Code: BD-006</p>
+              <p class="product-description">Elegant candles with a glitter-dipped effect. Adds sparkle to any birthday celebration.</p>
+              <p class="price mt-auto">£8.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Glitter Dipped Candles" data-price="8.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wedding Candles Page -->
+  <div id="wedding" class="product-page">
+    <div class="page-header">
+      <div class="container">
+        <a href="#" class="back-btn" onclick="showPage('home')"><i class="fas fa-arrow-left me-2"></i>Back to Home</a>
+        <h1 class="display-4 mt-3">Wedding Candles</h1>
+        <p class="lead">Elegant candles to illuminate your special day with romance and beauty</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <!-- Product 1 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/4545115/pexels-photo-4545115.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Pearl-Encrusted Pillar Candles">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Pearl-Encrusted Pillar Candles</h5>
+              <p class="product-code">Code: WD-001</p>
+              <p class="product-description">Elegant white pillar candles with delicate pearl accents. Perfect for centerpieces.</p>
+              <p class="price mt-auto">£24.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Pearl-Encrusted Pillar Candles" data-price="24.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 2 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/7365282/pexels-photo-7365282.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Floating Rose Candles">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Floating Rose Candles</h5>
+              <p class="product-code">Code: WD-002</p>
+              <p class="product-description">Delicate floating candles with rose petal accents. Creates a romantic atmosphere.</p>
+              <p class="price mt-auto">£18.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Floating Rose Candles" data-price="18.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 3 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/7365281/pexels-photo-7365281.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Gold Leaf Taper Candles">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Gold Leaf Taper Candles</h5>
+              <p class="product-code">Code: WD-003</p>
+              <p class="product-description">Sophisticated taper candles with real gold leaf details. Set of 12 candles.</p>
+              <p class="price mt-auto">£32.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Gold Leaf Taper Candles" data-price="32.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 4 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/7365280/pexels-photo-7365280.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Personalized Unity Candle">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Personalized Unity Candle</h5>
+              <p class="product-code">Code: WD-004</p>
+              <p class="product-description">Custom unity candle with the couple's names and wedding date. A beautiful keepsake.</p>
+              <p class="price mt-auto">£45.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Personalized Unity Candle" data-price="45.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 5 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/7365279/pexels-photo-7365279.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Ivory Pillar Candle Set">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Ivory Pillar Candle Set</h5>
+              <p class="product-code">Code: WD-005</p>
+              <p class="product-description">Set of three ivory pillar candles in varying heights. Creates elegant visual interest.</p>
+              <p class="price mt-auto">£28.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Ivory Pillar Candle Set" data-price="28.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 6 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/7365278/pexels-photo-7365278.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Crystal-Embedded Votive Candles">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Crystal-Embedded Votive Candles</h5>
+              <p class="product-code">Code: WD-006</p>
+              <p class="product-description">Votive candles with embedded crystals that sparkle in the candlelight. Set of 8.</p>
+              <p class="price mt-auto">£22.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Crystal-Embedded Votive Candles" data-price="22.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative Candles Page -->
+  <div id="decorations" class="product-page">
+    <div class="page-header">
+      <div class="container">
+        <a href="#" class="back-btn" onclick="showPage('home')"><i class="fas fa-arrow-left me-2"></i>Back to Home</a>
+        <h1 class="display-4 mt-3">Decorative Candles</h1>
+        <p class="lead">Beautiful candles to enhance your home's decor and create a warm, inviting atmosphere</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <!-- Product 1 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/33197/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Geometric Pattern Pillars">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Geometric Pattern Pillars</h5>
+              <p class="product-code">Code: DC-001</p>
+              <p class="product-description">Modern pillar candles with geometric patterns. Available in various sizes and colors.</p>
+              <p class="price mt-auto">£16.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Geometric Pattern Pillars" data-price="16.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 2 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/7365283/pexels-photo-7365283.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Marble Effect Candles">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Marble Effect Candles</h5>
+              <p class="product-code">Code: DC-002</p>
+              <p class="product-description">Elegant candles with a realistic marble effect. Adds sophistication to any room.</p>
+              <p class="price mt-auto">£22.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Marble Effect Candles" data-price="22.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 3 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/7365284/pexels-photo-7365284.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Hand-Carved Pillar Candles">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Hand-Carved Pillar Candles</h5>
+              <p class="product-code">Code: DC-003</p>
+              <p class="product-description">Artisanal pillar candles with intricate hand-carved designs. Each one is unique.</p>
+              <p class="price mt-auto">£28.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Hand-Carved Pillar Candles" data-price="28.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 4 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/7365285/pexels-photo-7365285.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Ombre Dip-Dyed Candles">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Ombre Dip-Dyed Candles</h5>
+              <p class="product-code">Code: DC-004</p>
+              <p class="product-description">Beautiful candles with a gradient ombre effect. Available in various color combinations.</p>
+              <p class="price mt-auto">£19.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Ombre Dip-Dyed Candles" data-price="19.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 5 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/7365286/pexels-photo-7365286.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Textured Stone Candles">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Textured Stone Candles</h5>
+              <p class="product-code">Code: DC-005</p>
+              <p class="product-description">Candles with a natural stone-like texture. Creates an earthy, organic feel.</p>
+              <p class="price mt-auto">£24.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Textured Stone Candles" data-price="24.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 6 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/7365287/pexels-photo-7365287.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Metallic Finish Candles">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Metallic Finish Candles</h5>
+              <p class="product-code">Code: DC-006</p>
+              <p class="product-description">Luxurious candles with metallic gold or silver finishes. Perfect for modern interiors.</p>
+              <p class="price mt-auto">£26.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Metallic Finish Candles" data-price="26.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Home Scent Candles Page -->
+  <div id="homescent" class="product-page">
+    <div class="page-header">
+      <div class="container">
+        <a href="#" class="back-btn" onclick="showPage('home')"><i class="fas fa-arrow-left me-2"></i>Back to Home</a>
+        <h1 class="display-4 mt-3">Home Scent Candles</h1>
+        <p class="lead">Fill your home with delightful aromas from our collection of beautifully scented candles</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <!-- Product 1 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/6311975/pexels-photo-6311975.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Lavender & Chamomile Candle">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Lavender & Chamomile Candle</h5>
+              <p class="product-code">Code: HS-001</p>
+              <p class="product-description">Calming blend of lavender and chamomile essential oils. Promotes relaxation and restful sleep.</p>
+              <p class="price mt-auto">£18.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Lavender & Chamomile Candle" data-price="18.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 2 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/7365288/pexels-photo-7365288.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Vanilla & Sandalwood Candle">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Vanilla & Sandalwood Candle</h5>
+              <p class="product-code">Code: HS-002</p>
+              <p class="product-description">Warm, comforting scent with notes of creamy vanilla and earthy sandalwood.</p>
+              <p class="price mt-auto">£19.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Vanilla & Sandalwood Candle" data-price="19.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 3 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/7365289/pexels-photo-7365289.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Citrus & Ginger Candle">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Citrus & Ginger Candle</h5>
+              <p class="product-code">Code: HS-003</p>
+              <p class="product-description">Energizing blend of zesty citrus and spicy ginger. Uplifting and refreshing.</p>
+              <p class="price mt-auto">£17.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Citrus & Ginger Candle" data-price="17.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 4 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/7365290/pexels-photo-7365290.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Ocean Breeze Candle">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Ocean Breeze Candle</h5>
+              <p class="product-code">Code: HS-004</p>
+              <p class="product-description">Fresh, clean scent with notes of sea salt, driftwood, and coastal air.</p>
+              <p class="price mt-auto">£20.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Ocean Breeze Candle" data-price="20.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 5 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/7365291/pexels-photo-7365291.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Rose & Patchouli Candle">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Rose & Patchouli Candle</h5>
+              <p class="product-code">Code: HS-005</p>
+              <p class="product-description">Romantic floral scent with earthy undertones of patchouli. Luxurious and sensual.</p>
+              <p class="price mt-auto">£22.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Rose & Patchouli Candle" data-price="22.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 6 -->
+        <div class="col-md-6 col-lg-4 product-card">
+          <div class="card h-100">
+            <img src="https://images.pexels.com/photos/7365292/pexels-photo-7365292.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top product-img" alt="Fresh Linen Candle">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Fresh Linen Candle</h5>
+              <p class="product-code">Code: HS-006</p>
+              <p class="product-description">Clean, crisp scent reminiscent of freshly laundered linens. Creates a welcoming atmosphere.</p>
+              <p class="price mt-auto">£16.99</p>
+              <button class="btn btn-primary mt-2 add-to-cart" data-product="Fresh Linen Candle" data-price="16.99">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Page -->
+  <div id="about" class="product-page">
+    <div class="page-header">
+      <div class="container">
+        <a href="#" class="back-btn" onclick="showPage('home')"><i class="fas fa-arrow-left me-2"></i>Back to Home</a>
+        <h1 class="display-4 mt-3">About Ann's Candle Shop</h1>
+      </div>
+    </div>
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="section-title">Our Story</h2>
+          <p>Welcome to Ann's Candle Shop, where passion for candle making meets dedication to quality and sustainability. Founded in 2015 by Ann herself, our small business has grown from a kitchen table operation to a beloved local brand in Durham, UK.</p>
+          <p>Ann started making candles as a hobby, creating unique pieces for friends and family. The positive feedback and growing demand inspired her to turn her passion into a business. Today, we continue to handcraft each candle with the same care and attention to detail that Ann started with.</p>
+          <h2 class="section-title mt-5">Our Process</h2>
+          <p>We believe in creating candles that are not only beautiful but also good for you and the environment. That's why we use:</p>
+          <ul>
+            <li>100% natural soy wax from sustainable sources</li>
+            <li>Lead-free cotton wicks</li>
+            <li>Phthalate-free fragrance oils and essential oils</li>
+            <li>Recyclable and reusable packaging</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <img src="https://images.pexels.com/photos/4465129/pexels-photo-4465129.jpeg?auto=compress&cs=tinysrgb&w=600" class="img-fluid rounded" alt="Candle Making Process">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Page -->
+  <div id="contact" class="product-page">
+    <div class="page-header">
+      <div class="container">
+        <a href="#" class="back-btn" onclick="showPage('home')"><i class="fas fa-arrow-left me-2"></i>Back to Home</a>
+        <h1 class="display-4 mt-3">Contact Us</h1>
+      </div>
+    </div>
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="section-title">Get In Touch</h2>
+          <p>We'd love to hear from you! Whether you have a question about our products, need help with an order, or want to discuss a custom candle design, please don't hesitate to reach out.</p>
+          <div class="mt-4">
+            <p><i class="fas fa-map-marker-alt me-2"></i> <strong>Address:</strong> 123 Candle Lane, Durham, DH1 1AA, UK</p>
+            <p><i class="fas fa-phone me-2"></i> <strong>Phone:</strong> +44 1234 567890</p>
+            <p><i class="fas fa-envelope me-2"></i> <strong>Email:</strong> info@annscandleshop.co.uk</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Name:</label>
+              <input type="text" class="form-control" placeholder="Your name" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email:</label>
+              <input type="email" class="form-control" placeholder="you@example.com" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Message:</label>
+              <textarea class="form-control" rows="4" placeholder="How can we help you?"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Page -->
+  <div id="cart" class="product-page">
+    <div class="page-header">
+      <div class="container">
+        <a href="#" class="back-btn" onclick="showPage('home')"><i class="fas fa-arrow-left me-2"></i>Back to Home</a>
+        <h1 class="display-4 mt-3">Your Shopping Cart</h1>
+      </div>
+    </div>
+    <div class="container py-5">
+      <div id="cartItems" class="mb-4">
+        <!-- Cart items will be dynamically inserted here -->
+        <p class="text-center">Your cart is empty</p>
+      </div>
+      <div class="row justify-content-end">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Order Summary</h5>
+              <div class="d-flex justify-content-between">
+                <span>Subtotal:</span>
+                <span id="cartSubtotal">£0.00</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span>Shipping:</span>
+                <span id="cartShipping">£0.00</span>
+              </div>
+              <hr>
+              <div class="d-flex justify-content-between fw-bold">
+                <span>Total:</span>
+                <span id="cartTotal">£0.00</span>
+              </div>
+              <button class="btn btn-primary w-100 mt-3">Proceed to Checkout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5>Ann's Candle Shop</h5>
+          <p>Handcrafted candles made with natural ingredients in Durham, UK.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white text-decoration-none" onclick="showPage('home')">Home</a></li>
+            <li><a href="#" class="text-white text-decoration-none" onclick="showPage('about')">About Us</a></li>
+            <li><a href="#" class="text-white text-decoration-none" onclick="showPage('contact')">Contact</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Shipping & Returns</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Contact Us</h5>
+          <p>
+            <i class="fas fa-map-marker-alt me-2"></i> Durham, UK<br>
+            <i class="fas fa-envelope me-2"></i> <a href="mailto:info@annscandleshop.co.uk" class="text-white">info@annscandleshop.co.uk</a><br>
+            <i class="fas fa-phone me-2"></i> +44 1234 567890
+          </p>
+        </div>
+      </div>
+      <hr class="mt-4 mb-4">
+      <div class="text-center">
+        <p>© 2025 Ann's Candle Shop. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Page navigation functionality
+    function showPage(pageId) {
+      // Hide all pages
+      document.querySelectorAll('.page, .product-page').forEach(page => {
+        page.style.display = 'none';
+      });
+      
+      // Show the selected page
+      document.getElementById(pageId).style.display = 'block';
+      
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
+    
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', function() {
+      // Show home page by default
+      showPage('home');
+      
+      // Initialize cart
+      updateCartDisplay();
+      
+      // Add event listeners to all "Add to Cart" buttons
+      document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+          const product = this.getAttribute('data-product');
+          const price = parseFloat(this.getAttribute('data-price'));
+          addToCart(product, price);
+        });
+      });
+    });
+    
+    // Cart functionality
+    let cart = [];
+    
+    function addToCart(product, price) {
+      // Check if product already in cart
+      const existingItem = cart.find(item => item.product === product);
+      
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({
+          product: product,
+          price: price,
+          quantity: 1
+        });
+      }
+      
+      updateCartDisplay();
+      
+      // Show confirmation
+      alert(`${product} added to cart!`);
+    }
+    
+    function updateCartDisplay() {
+      // Update cart badge
+      const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+      document.getElementById('cartCount').textContent = totalItems;
+      
+      // Update cart page if it's visible
+      if (document.getElementById('cart').style.display === 'block') {
+        updateCartPage();
+      }
+    }
+    
+    function updateCartPage() {
+      const cartItemsContainer = document.getElementById('cartItems');
+      const cartSubtotal = document.getElementById('cartSubtotal');
+      const cartShipping = document.getElementById('cartShipping');
+      const cartTotal = document.getElementById('cartTotal');
+      
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p class="text-center">Your cart is empty</p>';
+        cartSubtotal.textContent = '£0.00';
+        cartShipping.textContent = '£0.00';
+        cartTotal.textContent = '£0.00';
+        return;
+      }
+      
+      // Calculate totals
+      const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+      const shipping = subtotal > 30 ? 0 : 3.99;
+      const total = subtotal + shipping;
+      
+      // Update totals
+      cartSubtotal.textContent = `£${subtotal.toFixed(2)}`;
+      cartShipping.textContent = shipping === 0 ? 'FREE' : `£${shipping.toFixed(2)}`;
+      cartTotal.textContent = `£${total.toFixed(2)}`;
+      
+      // Generate cart items HTML
+      let cartHTML = '';
+      cart.forEach(item => {
+        cartHTML += `
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-md-6">
+                  <h5>${item.product}</h5>
+                  <p class="mb-0">£${item.price.toFixed(2)} each</p>
+                </div>
+                <div class="col-md-3">
+                  <div class="input-group">
+                    <button class="btn btn-outline-secondary" type="button" onclick="updateQuantity('${item.product}', -1)">-</button>
+                    <input type="text" class="form-control text-center" value="${item.quantity}" readonly>
+                    <button class="btn btn-outline-secondary" type="button" onclick="updateQuantity('${item.product}', 1)">+</button>
+                  </div>
+                </div>
+                <div class="col-md-2 text-end">
+                  <p class="mb-0 fw-bold">£${(item.price * item.quantity).toFixed(2)}</p>
+                </div>
+                <div class="col-md-1 text-end">
+                  <button class="btn btn-danger btn-sm" onclick="removeFromCart('${item.product}')">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      
+      cartItemsContainer.innerHTML = cartHTML;
+    }
+    
+    function updateQuantity(product, change) {
+      const item = cart.find(item => item.product === product);
+      
+      if (item) {
+        item.quantity += change;
+        
+        if (item.quantity <= 0) {
+          removeFromCart(product);
+        } else {
+          updateCartDisplay();
+        }
+      }
+    }
+    
+    function removeFromCart(product) {
+      cart = cart.filter(item => item.product !== product);
+      updateCartDisplay();
+    }
+  </script>
+</body>
+</html>
